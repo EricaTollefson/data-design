@@ -26,11 +26,10 @@
 
 <h2>Interaction Flow</h2>
 		<ul>
-			<li>On the Southwest.com itinerary page for her selcted flights, Francine selects "Share" button at top of page, next to the itinerary summary</li>
+			<li>On the Southwest.com itinerary page for her selected flights, Francine selects "Share" button at top of page, next to the itinerary summary</li>
 			<li>Southwest.com returns a pop-up showing the list of friends previously saved in Francine's profile, and optional text box for adding a personal note from Francine regarding the itinerary</li>
 			<li>Francine clicks checkboxes next to each friend's name to select an option to email, text or post to Facebook or Twitter a link to the selected flight itinerary. She optionally may type a personal note in the text box.</li>
-			<li>Friends receive messages, and click on link provided in message to view the itinerary on Southwest.com.</li>
-			<li>Friends review the itinerary, and potentially purchase tickets for the itinerary on Southwest.com</li>
+			<li>Friends receive messages noting flight itinerary information.</li>
 		</ul>
 	</body>
 </html>
