@@ -9,8 +9,63 @@
 		<p><a href="./use-case.php">Use Case</a></p>
 		<p><a href="./persona-francine.php">Persona</a></p>
 
-		<H1>Conceptual Model</H1>
+<H1>Conceptual Model</H1>
 
-		<p>Part of Phase 2</p>
+<h2>Entities and Attributes</h2>
+
+<h3>user</h3>
+		<ul>
+			<li>userID (Primary Key)</li>
+			<li>userFirstName</li>
+			<li>userLastName</li>
+			<li>userMiddleName</li>
+			<li>userEmail</li>
+			<li>userAddress</li>
+			<li>userPhone</li>
+			<li>userDateOfBirth</li>
+			<li>userRewardsStatus</li>
+			<li>userRewardsNumber</li>
+		</ul>
+
+<h3>itinerary</h3>
+		<ul>
+			<li>itineraryID (Primary Key)</li>
+			<li>itineraryUserID (Foreign Key)</li>
+			<li>outboundFlightDate</li>
+			<li>outboundFlightNumber</li>
+			<li>outboundFlightDepartureCity</li>
+			<li>outboundFlightArrivalCity</li>
+			<li>outboundFlightDepartureTime</li>
+			<li>outboundFlightArrivalTime</li>
+			<li>outboundFlightPrice</li>
+			<li>inboundFlightDate</li>
+			<li>inboundFlightNumber</li>
+			<li>inboundFlightDepartureCity</li>
+			<li>inboundFlightArrivalCity</li>
+			<li>inboundFlightDepartureTime</li>
+			<li>inboundFlightArrivalTime</li>
+			<li>inboundFlightPrice</li>
+			<li>itineraryTotalPrice</li>
+		</ul>
+
+<h3>friendInfo</h3>
+		<ul>
+			<li>friendID (Primary Key)</li>
+			<li>friendUserID (Foreign Key</li>
+			<li>friendFirstName</li>
+			<li>friendLastName</li>
+			<li>friendEmail</li>
+			<li>friendTextNumber</li>
+			<li>friendFacebook</li>
+			<li>friendTwitter</li>
+		</ul>
+
+<h2>Relations</h2>
+		<ul>
+			<li>One <b>user</b> can save <b>friendInfo</b> from many friends in a user profile <b>(1-to-m)</b></li>
+			<li>Many <b>itinerary</b> can be sent to many <b>friendInfo (m-to-n)</b></li>
+			<li>Many <b>itinerary</b> can be searched for by many <b>user (m-to-n)</b></li>
+			<li></li>
+		</ul>
 	</body>
 </html>
