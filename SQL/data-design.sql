@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS friend;
 DROP TABLE IF EXISTS itinerary;
 
 -- the CREATE TABLE function is a function that takes tons of arguments to layout the table's schema
+-- create the 'user' entity
 CREATE TABLE `user` (
 	-- this creates the attribute for the primary key
 	-- not null means the attribute is required!
@@ -32,7 +33,7 @@ CREATE TABLE `user` (
 	PRIMARY KEY(userId)
 );
 
--- create the tweet entity
+-- create the friend entity
 CREATE TABLE friend (
 	-- this is for yet another primary key...
 	friendId BINARY(16) NOT NULL,
@@ -52,19 +53,31 @@ CREATE TABLE friend (
 	PRIMARY KEY(friendId)
 );
 
--- create the like entity (a weak entity from an m-to-n for profile --> tweet)
-CREATE TABLE `like` (
-	-- these are still foreign keys
-	likeProfileId BINARY(16) NOT NULL,
-	likeTweetId BINARY(16) NOT NULL,
-	likeDate DATETIME(6) NOT NULL,
-	-- index the foreign keys
-	INDEX(likeProfileId),
-	INDEX(likeTweetId),
-	-- create the foreign key relations
-	FOREIGN KEY(likeProfileId) REFERENCES profile(profileId),
-	FOREIGN KEY(likeTweetId) REFERENCES tweet(tweetId),
-	-- finally, create a composite foreign key with the two foreign keys
-	PRIMARY KEY(likeProfileId, likeTweetId)
+-- create the itinerary entity
+CREATE TABLE itinerary (
+	-- this is for yet another primary key...
+	itineraryId BINARY(16) NOT NULL,
+	-- this is for a foreign key
+	itineraryUserId BINARY(16) NOT NULL,
+	itineraryOutboundFlightDate DATE NOT NULL,
+	itineraryOutboundFlightNumber TINYINT NOT NULL,
+	itineraryOutboundFlightDepartureCity CHAR(4) NOT NULL,
+	itineraryOutboundFlightArrivalCity CHAR(4) NOT NULL,
+	itineraryOutboundFlightDepartureTime TIME NOT NULL,
+	itineraryOutboundFlightArrivalTime TIME NOT NULL,
+	itineraryOutboundFlightPrice DECIMAL(8,2) NOT NULL,
+	itineraryInboundFlightDate DATE NOT NULL,
+	itineraryInboundFlightNumber TINYINT NOT NULL,
+	itineraryInboundFlightDepartureCity CHAR(4) NOT NULL,
+	itineraryInboundFlightArrivalCity CHAR(4) NOT NULL,
+	itineraryInboundFlightDepartureTime TIME NOT NULL,
+	itineraryInboundFlightArrivalTime TIME NOT NULL,
+	itineraryInboundFlightPrice DECIMAL(8,2) NOT NULL,
+	itineraryTotalPrice DECIMAL(8,2) NOT NULL,
+	-- this creates an index before making a foreign key
+	INDEX(itineraryUserId),
+	-- this creates the actual foreign key relation
+	FOREIGN KEY(itineraryUserId) REFERENCES 'user'(userId),
+	-- and finally create the primary key
+	PRIMARY KEY(itineraryId)
 );
-
