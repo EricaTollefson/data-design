@@ -33,19 +33,23 @@ CREATE TABLE `user` (
 );
 
 -- create the tweet entity
-CREATE TABLE tweet (
+CREATE TABLE friend (
 	-- this is for yet another primary key...
-	tweetId BINARY(16) NOT NULL,
+	friendId BINARY(16) NOT NULL,
 	-- this is for a foreign key
-	tweetProfileId BINARY(16) NOT NULL,
-	tweetContent VARCHAR(140) NOT NULL,
-	tweetDate DATETIME(6) NOT NULL,
+	friendUserId BINARY(16) NOT NULL,
+	friendFirstName VARCHAR(32) NOT NULL,
+	friendLastName VARCHAR(32) NOT NULL,
+	friendEmail VARCHAR(128) NOT NULL,
+	friendTextNumber VARCHAR(32),
+	friendFacebook CHAR(75),
+	friendTwitter CHAR(75),
 	-- this creates an index before making a foreign key
-	INDEX(tweetProfileId),
+	INDEX(friendUserId),
 	-- this creates the actual foreign key relation
-	FOREIGN KEY(tweetProfileId) REFERENCES profile(profileId),
+	FOREIGN KEY(friendUserId) REFERENCES 'user'(userId),
 	-- and finally create the primary key
-	PRIMARY KEY(tweetId)
+	PRIMARY KEY(friendId)
 );
 
 -- create the like entity (a weak entity from an m-to-n for profile --> tweet)
