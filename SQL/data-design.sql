@@ -15,16 +15,16 @@ CREATE TABLE `user` (
 	-- this creates the attribute for the primary key
 	-- not null means the attribute is required!
 	userId BINARY(16) NOT NULL,
-	userFirstName CHAR(32) NOT NULL,
+	userFirstName VARCHAR(32) NOT NULL,
 	userLastName VARCHAR(32) NOT NULL,
 	userMiddleName VARCHAR(32),
 	userEmail VARCHAR(128) NOT NULL,
 	-- to make something optional, exclude the not null
 	userAddress CHAR(97) NOT NULL,
 	userPhone VARCHAR(32),
-	userDateOfBirth CHAR(97) NOT NULL,
-	userRewardsStatus CHAR(97) NOT NULL,
-	userRewardsNumber CHAR(97) NOT NULL,
+	userDateOfBirth DATE NOT NULL,
+	userRewardsStatus VARCHAR(16) NOT NULL,
+	userRewardsNumber TINYINT NOT NULL,
 	-- to make sure duplicate data cannot exist, create a unique index
 	UNIQUE(userEmail),
 	UNIQUE(userRewardsNumber),
